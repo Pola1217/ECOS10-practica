@@ -1,0 +1,43 @@
+body {
+
+    margin: 0%;
+    padding: 0%;
+
+}
+
+#regisContain {
+
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    background-color: rgb(23, 58, 31);
+    padding: 50px;
+    
+}
+
+#regisContain * {
+
+    width: 100%;
+    margin: 10px 16px 10px 16px;
+
+}
+#title {
+
+    color: rgb(248, 241, 210);
+    text-align: center;
+}
+
+#subtitle {
+
+    color: aliceblue;
+    text-align: center;
+}
+
+#subtitle1 {
+
+    color: aliceblue;
+    text-align: center;
+}
