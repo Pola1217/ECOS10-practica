@@ -9,7 +9,7 @@ const firebaseAppConfig = getFirebaseConfig();
 const firebaseApp = initializeApp(firebaseAppConfig);
 
 //REGISTRO DE CANDIDATOS
-//regitrar al candidato
+//regitrar al candidato y firebase
 function registro(candidato) {
 
     const database = getDatabase();
@@ -19,14 +19,14 @@ function registro(candidato) {
     set(candidN, candidato);
 }
 
-//recibe candidatos cuando act firebase
+//cuando act firebase recibe al candidato
 function getCandid () {
 
     const database = getDatabase();
 
     const candidN = ref(database, 'candidato/'  );
 
-    //firebase
+    //firebase data
     onValue(candidN, (snapshot)=> {
 
         const dataC = snapshot.val();
@@ -67,8 +67,7 @@ function getVotos(votoss) {
     const database = getDatabase();
 
     const voteN = ref(database, 'votos' );
-    const candid = ref(database, 'candidatos');
-
+    
     onValue(voteN, (snapshot) => {
 
         const dataV = snapshot.val();
@@ -86,8 +85,8 @@ function actVotos(dataV) {
     let Lvotos = " ";
 
     Object.keys(dataV).forEach((key, index) => {
-        
-        Lvotos += dataV[key].id + " , " + dataV[key].name + "\n";
+
+        Lvotos += dataV[key].id + " , " + dataV[key].cantidad + "\n";
         
     });
     
@@ -95,17 +94,10 @@ function actVotos(dataV) {
 }
 
 //suma los votos
-function agreVotos (agregav) {
-
-        Object.keys(agregav).forEach((key, index)=> {
-
-            agregav.votoss++;
-
-        });   
-
-}
-
-
+//multiples intentos, nada me fuciono
+/*function agreVotos (agregav) {
+  
+}*/
 
 //DECLARACIONES
 //registro
@@ -134,7 +126,8 @@ const resgistrarC = (e, event) => {
 
     }
 
-    registro(candidato);
+        registro(candidato);
+
 } 
 
 //votacion
