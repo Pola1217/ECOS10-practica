@@ -14,7 +14,6 @@ function registro(candidato) {
 
     const database = getDatabase();
 
-    //const candidN = push(ref(database, 'candidato' + candidato.nombre));
     const candidN = push(ref(database, 'candidato'));
 
     set(candidN, candidato);
@@ -58,8 +57,7 @@ function votar(votoss) {
     const database = getDatabase();
 
      const voteN = push(ref(database, 'votos/' ));
-    //const voteN = ref(database, 'votos/' + votoss.id);
-
+    
     set(voteN, votoss);
 }
 
@@ -80,7 +78,6 @@ function getVotos(votoss) {
         agreVotos (total);
     });
 
-    //agreVotos (agregav);
 }
 
 //organiza y muestra la lista en la alerta
@@ -102,10 +99,10 @@ function agreVotos (agregav) {
 
         Object.keys(agregav).forEach((key, index)=> {
 
-            agregav.voto++;
+            agregav.votoss++;
 
         });   
-        
+
 }
 
 
@@ -145,7 +142,8 @@ const registrarV = (e, event) => {
 
     const votoss = {
 
-        id: id2.value
+        id: id2.value,
+        name2: nombre.value
 
     }
 
